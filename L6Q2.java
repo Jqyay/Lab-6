@@ -21,21 +21,13 @@ public class L6Q2 {
         
         System.out.print("\nEnter the number of rows of triangle: ");
         int rowTri = sc.nextInt();
-        System.out.println();
-        for (int i=1;i<=rowTri;i++){
-            System.out.format("%"+((i==rowTri)?1:(rowTri+(rowTri+1)-i-(i-1))/2)+"s", "");
-            multiPrint(i,c);
-        }
+        triangle(rowTri, c);
         
         System.out.print("\nEnter the number of rows of diamond: ");
         int rowDia = sc.nextInt();
-        System.out.println();
-        for (int i=1;i<=rowDia;i++){
-            System.out.format("%"+((i==rowDia)?1:(rowDia+(rowDia+1)-i-(i-1))/2)+"s", "");
-            multiPrint(i,c);
-        }
-        for (int i=rowDia-1;i>=1;i--){
-            System.out.format("%"+((i==rowDia)?1:(rowDia+(rowDia+1)-i-(i-1))/2)+"s", "");
+        triangle((int)(Math.round(rowDia/2.0)),c);
+        for (int i=(int)(Math.round(rowDia/2.0)-1);i>=1;i--){
+            System.out.format("%"+((Math.round(rowDia/2.0)+(Math.round(rowDia/2.0)+1)-i-(i-1))/2)+"s", "");
             multiPrint(i,c);
         }
     }
@@ -43,5 +35,12 @@ public class L6Q2 {
         for (int i=0; i<n;i++)
             System.out.print( c+" ");
         System.out.println();
+    }
+    public static void triangle(int rowTri, char c){
+        System.out.println();
+        for (int i=1;i<=rowTri;i++){
+            System.out.format("%"+((i==rowTri)?1:(rowTri+(rowTri+1)-i-(i-1))/2)+"s", "");
+            multiPrint(i,c);
+        }
     }
 }
